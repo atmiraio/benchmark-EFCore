@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>net6.0;net5.0</TargetFrameworks>
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+	
+	<ItemGroup>
+	  <Compile Remove="SimpleEntity\EntityBulkCrudBenchmark.cs" />
+	  <Compile Remove="SimpleEntity\EntityCrudBenchmark.cs" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+		<ProjectReference Include="..\EFCore6\EFCore6.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
+		<ProjectReference Include="..\EFCore5\EFCore5.csproj" />
+	</ItemGroup>
+
+</Project>
