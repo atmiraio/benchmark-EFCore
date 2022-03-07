@@ -110,12 +110,12 @@ namespace BenchmarkEFCore
         {
             using var context = _poolingFactory.CreateDbContext();
 #if NET5_0
-            _runCountReadId5++;
+            _runCountReadName5++;
             var entity = context.SimpleEntities.Where(e => e.Name == $"Name-{_runCountReadName5}").FirstOrDefault();
 #endif
 
 #if NET6_0
-            _runCountReadId6++;
+            _runCountReadName6++;
             var entity = context.Entities.Where(e => e.Name == $"Name-{_runCountReadName6}").FirstOrDefault();
 #endif
         }
